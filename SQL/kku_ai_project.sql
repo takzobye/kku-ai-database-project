@@ -1,25 +1,6 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               11.4.5-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             12.10.0.7000
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
--- Dumping database structure for kku_ai_project
-CREATE DATABASE IF NOT EXISTS `kku_ai_project` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE IF NOT EXISTS `kku_ai_project`;
 USE `kku_ai_project`;
 
--- Dumping structure for table kku_ai_project.comment
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
@@ -29,7 +10,6 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kku_ai_project.comment: ~17 rows (approximately)
 INSERT INTO `comment` (`id`, `content`, `travel_id`, `travel_type_id`, `travel_region_id`) VALUES
 	(1, 'สวยและอลังการมาก เหมือนได้ย้อนเวลากลับไปยุคขอม แนะนำให้มาเที่ยวช่วงเช้าหรือเย็น อากาศจะไม่ร้อนเกินไป', 1, 4, 1),
 	(2, 'ป็นสถานที่ศักดิ์สิทธิ์ที่ต้องมาสักครั้งในชีวิต บรรยากาศสงบ สวยงามมาก โดยเฉพาะช่วงเทศกาลบุญ', 2, 5, 1),
@@ -49,14 +29,12 @@ INSERT INTO `comment` (`id`, `content`, `travel_id`, `travel_type_id`, `travel_r
 	(16, 'กาะยอดนิยมของระยอง ทะเลใส หาดทรายขาว เดินทางง่ายจากกรุงเทพฯ เหมาะทั้งพักผ่อนและปาร์ตี้ริมชายหาด', 9, 2, 3),
 	(17, 'อดเขาที่สูงที่สุดในประเทศไทย อากาศเย็นตลอดปี มีจุดชมทะเลหมอกสวยงามและพระมหาธาตุเจดีย์คู่', 10, 3, 2);
 
--- Dumping structure for table kku_ai_project.region
 CREATE TABLE IF NOT EXISTS `region` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kku_ai_project.region: ~5 rows (approximately)
 INSERT INTO `region` (`id`, `name`) VALUES
 	(1, 'อีสาน'),
 	(2, 'เหนือ'),
@@ -64,7 +42,6 @@ INSERT INTO `region` (`id`, `name`) VALUES
 	(4, 'ตะวันออก'),
 	(5, 'กลาง');
 
--- Dumping structure for table kku_ai_project.travel
 CREATE TABLE IF NOT EXISTS `travel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
@@ -77,7 +54,6 @@ CREATE TABLE IF NOT EXISTS `travel` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kku_ai_project.travel: ~10 rows (approximately)
 INSERT INTO `travel` (`id`, `name`, `price`, `location`, `image`, `descript`, `type_id`, `region_id`) VALUES
 	(1, 'ปราสาทหินพิมาย', 1000.00, 'บุรีรัมย์', 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Phimai_%28III%29.jpg', 'โบราณสถานขอมที่ใหญ่ที่สุดในไทย ตั้งอยู่ที่นครราชสีมา มีสถาปัตยกรรมแบบขอมโบราณคล้ายปราสาทหินพนมรุ้ง', 4, 1),
 	(2, 'วัดพระธาตุพนม', 1000.00, 'นครพนม', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyM-yCOC2PAE9mlYLnNXkA0XkY7-cpYUQ3Ig&s', 'พระธาตุศักดิ์สิทธิ์แห่งนครพนม เป็นปูชนียสถานคู่บ้านคู่เมืองของชาวไทยและลาว เชื่อกันว่ามีพระบรมสารีริกธาตุของพระพุทธเจ้าบรรจุอยู่', 5, 1),
@@ -90,13 +66,11 @@ INSERT INTO `travel` (`id`, `name`, `price`, `location`, `image`, `descript`, `t
 	(9, 'เกาะเสม็ด', 10000.00, 'ระยอง', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzFq-w53z6kHAp0t0mebhDVNFgUsi0dMBEuw&s', ' เกาะสวยของระยอง มีหาดทรายขาวละเอียด น้ำทะเลใส และเป็นจุดหมายยอดฮิตสำหรับการพักผ่อนและปาร์ตี้ริมทะเล', 2, 3),
 	(10, 'ดอยอินทนนท์', 5000.00, 'เชียงใหม่', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjSLnkxPYCu_QNZdFJIzH_rj9ke4YDCcYfHQ&s', 'ยอดเขาสูงที่สุดในประเทศไทย อยู่ที่เชียงใหม่ มีอากาศเย็นตลอดปี จุดชมวิวพระอาทิตย์ขึ้นสวยงาม และเป็นที่ตั้งของพระมหาธาตุนภเมทนีดล-นภพลภูมิสิริ', 3, 2);
 
--- Dumping structure for table kku_ai_project.travel_has_user
 CREATE TABLE IF NOT EXISTS `travel_has_user` (
   `travel_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kku_ai_project.travel_has_user: ~20 rows (approximately)
 INSERT INTO `travel_has_user` (`travel_id`, `user_id`) VALUES
 	(1, 1),
 	(3, 1),
@@ -119,14 +93,12 @@ INSERT INTO `travel_has_user` (`travel_id`, `user_id`) VALUES
 	(10, 9),
 	(5, 6);
 
--- Dumping structure for table kku_ai_project.type
 CREATE TABLE IF NOT EXISTS `type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kku_ai_project.type: ~5 rows (approximately)
 INSERT INTO `type` (`id`, `name`) VALUES
 	(1, 'การผจญภัย'),
 	(2, 'ชายหาด'),
@@ -134,7 +106,6 @@ INSERT INTO `type` (`id`, `name`) VALUES
 	(4, 'ประวัติศาสตร์'),
 	(5, 'ทางวัฒนธรรม');
 
--- Dumping structure for table kku_ai_project.user
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
@@ -144,7 +115,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table kku_ai_project.user: ~10 rows (approximately)
 INSERT INTO `user` (`id`, `name`, `email`, `phone`, `create_at`) VALUES
 	(1, 'wawa', 'wawa@gmail.com', '0894123212', '2025-03-15'),
 	(2, 'vee', 'vee@gmail.com', '0831562763', '2025-03-15'),
@@ -157,36 +127,26 @@ INSERT INTO `user` (`id`, `name`, `email`, `phone`, `create_at`) VALUES
 	(9, 'prang', 'prang@gmail.com', '0896354267', '2025-03-15'),
 	(10, 'ying', 'ying@gmail.com', '0895467364', '2025-03-15');
 
--- Dumping structure for view kku_ai_project.view_frequent_travelers
--- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `view_frequent_travelers` (
 	`user_name` VARCHAR(1) NULL COLLATE 'utf8mb4_general_ci',
 	`travel_count` BIGINT(21) NOT NULL
 ) ENGINE=MyISAM;
 
--- Dumping structure for view kku_ai_project.view_popular_regions
--- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `view_popular_regions` (
 	`region_name` VARCHAR(1) NULL COLLATE 'utf8mb4_general_ci',
 	`visitor_count` BIGINT(21) NOT NULL
 ) ENGINE=MyISAM;
 
--- Dumping structure for view kku_ai_project.view_popular_travel
--- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `view_popular_travel` (
 	`travel_name` VARCHAR(1) NULL COLLATE 'utf8mb4_general_ci',
 	`visitor_count` BIGINT(21) NOT NULL
 ) ENGINE=MyISAM;
 
--- Dumping structure for view kku_ai_project.view_popular_travel_types
--- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `view_popular_travel_types` (
 	`type_name` VARCHAR(1) NULL COLLATE 'utf8mb4_general_ci',
 	`visitor_count` BIGINT(21) NOT NULL
 ) ENGINE=MyISAM;
 
--- Dumping structure for view kku_ai_project.view_travel_by_price
--- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `view_travel_by_price` (
 	`id` INT(11) NOT NULL,
 	`name` VARCHAR(1) NULL COLLATE 'utf8mb4_general_ci',
@@ -198,7 +158,6 @@ CREATE TABLE `view_travel_by_price` (
 	`region_id` INT(11) NULL
 ) ENGINE=MyISAM;
 
--- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `view_frequent_travelers`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_frequent_travelers` AS SELECT u.name AS user_name, COUNT(thu.travel_id) AS travel_count 
 FROM user u 
@@ -207,7 +166,6 @@ GROUP BY u.id, u.name
 ORDER BY travel_count DESC 
 ;
 
--- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `view_popular_regions`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_popular_regions` AS SELECT r.name AS region_name, COUNT(thu.user_id) AS visitor_count 
 FROM region r 
@@ -217,7 +175,6 @@ GROUP BY r.id, r.name
 ORDER BY visitor_count DESC 
 ;
 
--- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `view_popular_travel`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_popular_travel` AS SELECT t.name AS travel_name, COUNT(thu.user_id) AS visitor_count 
 FROM travel t 
@@ -226,7 +183,6 @@ GROUP BY t.id, t.name
 ORDER BY visitor_count DESC 
 ;
 
--- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `view_popular_travel_types`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_popular_travel_types` AS SELECT ty.name AS type_name, COUNT(thu.user_id) AS visitor_count 
 FROM type ty 
@@ -236,14 +192,7 @@ GROUP BY ty.id, ty.name
 ORDER BY visitor_count DESC 
 ;
 
--- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `view_travel_by_price`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_travel_by_price` AS SELECT * FROM travel 
 ORDER BY price ASC 
 ;
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
