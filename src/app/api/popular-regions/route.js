@@ -1,4 +1,4 @@
-import { getConnection } from '@/app/lib/db';
+import { getConnection } from '@/lib/db';
 
 export async function GET() {
     try {
